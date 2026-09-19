@@ -1,8 +1,21 @@
 # DevNeganSmith - Voice Proximity Indicator
 
-Indicador visual del alcance de voz para servidores **FiveM Qbox/QBX** que utilizan **pma-voice**.
+Indicador visual del alcance de voz para servidores FiveM que utilizan **pma-voice**, independiente del framework.
 
 > Creado y mantenido por **DevNeganSmith**.
+
+## Compatibilidad
+
+| Entorno | Estado |
+|---|---|
+| Standalone + pma-voice | ✅ Compatible |
+| ESX Legacy + pma-voice | ✅ Compatible |
+| QBCore + pma-voice | ✅ Compatible |
+| Qbox / QBX + pma-voice | ✅ Compatible |
+
+El recurso no utiliza APIs, callbacks, exports ni eventos propios de ESX, QBCore o Qbox.
+
+La dependencia real del recurso es **pma-voice**.
 
 ## Características
 
@@ -12,11 +25,24 @@ Indicador visual del alcance de voz para servidores **FiveM Qbox/QBX** que utili
 - Puede mostrarse también dentro de vehículos.
 - Duración, color, altura y comportamiento configurables.
 - No requiere base de datos.
-- No requiere llamadas directas a `qbx_core`.
+- No requiere SQL.
+- No requiere `ox_lib`, `ox_target`, ESX, QBCore ni `qbx_core`.
+- Funciona del lado del cliente.
 
-## Dependencia
+## Dependencias
+
+### Obligatoria
 
 - `pma-voice`
+
+### No requeridas
+
+- ESX
+- QBCore
+- Qbox/QBX
+- `ox_lib`
+- `ox_target`
+- SQL
 
 ## Instalación
 
@@ -33,13 +59,48 @@ ensure devnegansmith_voice_proximity
 
 ## Configuración
 
-Las opciones se encuentran en `config.lua`: duración, multiplicador de audio nativo, visualización en vehículos, altura, tipo y color del marcador.
+Las opciones se encuentran en `config.lua`:
 
-## Compatibilidad
+- `displayDuration`: duración del indicador;
+- `nativeAudioMultiplier`: corrección visual cuando se usa audio nativo;
+- `showInVehicles`: permite mostrarlo dentro de vehículos;
+- `vehicleGroundOffset`: ajuste vertical sobre el suelo;
+- `marker.type`: tipo de marcador;
+- `marker.height`: altura;
+- `marker.color`: color RGBA.
 
-- FiveM / GTA V
-- Qbox / QBX
-- pma-voice
+## Funcionamiento
+
+Cuando cambia el modo de proximidad del jugador:
+
+1. detecta el cambio mediante el state bag de `proximity`;
+2. obtiene el rango actual mediante `MumbleGetTalkerProximity()`;
+3. aplica el multiplicador configurado cuando `voice_useNativeAudio` está activo;
+4. obtiene la posición del jugador o vehículo;
+5. dibuja temporalmente el círculo correspondiente al rango audible.
+
+## Otros sistemas de voz
+
+Esta versión está diseñada específicamente para **pma-voice**.
+
+No debe anunciarse como compatible directamente con otros sistemas de voz como SaltyChat, TokoVOIP u otros reemplazos sin una adaptación específica, porque utilizan APIs y lógica diferentes.
+
+## Posibles conflictos
+
+- otro recurso que dibuje simultáneamente su propio indicador de proximidad;
+- modificaciones personalizadas del state bag `proximity`;
+- recursos que alteren el rango Mumble de forma no estándar;
+- ejecutar otro sistema de voz en lugar de `pma-voice`.
+
+## Pruebas recomendadas
+
+- cambiar todos los modos de proximidad;
+- probar a pie;
+- probar dentro de vehículos;
+- probar con `voice_useNativeAudio` activado y desactivado;
+- comprobar tamaño y duración del círculo;
+- reiniciar `pma-voice` y el recurso;
+- validar cualquier configuración personalizada de proximidad.
 
 ## Documentación
 
