@@ -1,3 +1,9 @@
+<!-- DEVNEGANSMITH_PREVIEW_START -->
+<p align="center">
+  <img src="assets/devnegansmith-preview.jpg" alt="DevNeganSmith FiveM Resources" width="100%">
+</p>
+<!-- DEVNEGANSMITH_PREVIEW_END -->
+
 # DevNeganSmith - Voice Proximity Indicator
 
 Indicador visual del alcance de voz para servidores FiveM que utilizan **pma-voice**, independiente del framework.
