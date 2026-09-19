@@ -1,24 +1,28 @@
 # DevNeganSmith - Voice Proximity Indicator
 
-Recurso para FiveM creado por **DevNeganSmith** que muestra visualmente el alcance actual de la voz cuando el jugador cambia el modo de proximidad de `pma-voice`.
+Indicador visual del alcance de voz para servidores **FiveM Qbox/QBX** que utilizan **pma-voice**.
 
-## ¿Para qué sirve?
+> Creado y mantenido por **DevNeganSmith**.
 
-- Muestra un círculo alrededor del jugador al cambiar la distancia de voz.
-- Permite visualizar fácilmente el alcance actual de conversación.
-- Compatible con `pma-voice` y audio nativo.
-- También puede mostrar el indicador cuando el jugador está dentro de un vehículo.
-- El aspecto y duración del indicador son configurables.
+## Características
+
+- Muestra un círculo alrededor del jugador al cambiar el modo de proximidad.
+- Representa visualmente el alcance actual de conversación.
+- Integración directa con `pma-voice`.
+- Puede mostrarse también dentro de vehículos.
+- Duración, color, altura y comportamiento configurables.
+- No requiere base de datos.
+- No requiere llamadas directas a `qbx_core`.
 
 ## Dependencia
 
 - `pma-voice`
 
-## Instalación rápida
+## Instalación
 
-1. Copia `devnegansmith_voice_proximity` dentro de tu carpeta `resources`.
-2. Asegúrate de iniciar `pma-voice` primero.
-3. Agrega en `server.cfg`:
+1. Coloca `devnegansmith_voice_proximity` dentro de tus recursos.
+2. Asegúrate de iniciar `pma-voice` antes.
+3. Añade:
 
 ```cfg
 ensure pma-voice
@@ -27,8 +31,22 @@ ensure devnegansmith_voice_proximity
 
 4. Reinicia el recurso o el servidor.
 
-La configuración se encuentra en `config.lua`.
+## Configuración
 
-**Autor:** DevNeganSmith  
-**Versión:** 1.0.0  
-**Compatibilidad:** FiveM / Qbox / QBX + pma-voice
+Las opciones se encuentran en `config.lua`: duración, multiplicador de audio nativo, visualización en vehículos, altura, tipo y color del marcador.
+
+## Compatibilidad
+
+- FiveM / GTA V
+- Qbox / QBX
+- pma-voice
+
+## Documentación
+
+Consulta [`DOCUMENTACION.md`](DOCUMENTACION.md) y [`TERMS.md`](TERMS.md).
+
+## Licencia
+
+Distribuido bajo **MIT License**. Consulta [`LICENSE`](LICENSE).
+
+© 2026 **DevNeganSmith**
