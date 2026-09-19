@@ -3,7 +3,7 @@ game 'gta5'
 lua54 'yes'
 
 author 'DevNeganSmith'
-description 'DevNeganSmith - Indicador visual del alcance de proximidad de pma-voice'
+description 'Indicador visual de proximidad para pma-voice. Compatible con ESX Legacy, QBCore, Qbox/QBX y Standalone.'
 version '1.0.0'
 
 dependency 'pma-voice'
