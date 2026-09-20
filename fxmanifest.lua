@@ -4,7 +4,7 @@ lua54 'yes'
 
 author 'DevNeganSmith'
 description 'Indicador visual de proximidad para pma-voice. Compatible con ESX Legacy, QBCore, Qbox/QBX y Standalone.'
-version '1.0.0'
+version '1.0.1'
 
 dependency 'pma-voice'
 
